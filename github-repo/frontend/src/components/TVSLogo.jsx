@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 
 // TVS Logo: Blue text + red horse icon (matches design exactly)

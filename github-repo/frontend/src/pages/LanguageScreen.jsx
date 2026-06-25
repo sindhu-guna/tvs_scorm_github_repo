@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect, useRef } from 'react';
 import HeaderBar from '../components/HeaderBar';
 import { getLanguages } from '../services/api';

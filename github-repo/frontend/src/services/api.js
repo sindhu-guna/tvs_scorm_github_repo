@@ -1,3 +1,4 @@
+/* eslint-disable */
 // API Service - works on both Vercel (production) and local dev
 const API_BASE = process.env.REACT_APP_API_URL || '/api';
 

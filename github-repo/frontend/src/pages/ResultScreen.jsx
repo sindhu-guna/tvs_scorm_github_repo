@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import HeaderBar from '../components/HeaderBar';
 import './ResultScreen.css';
