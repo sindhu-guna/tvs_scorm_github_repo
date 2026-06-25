@@ -223,9 +223,9 @@ const QuestionScreen = ({ topicId, onFinish }) => {
           <span className="q-result-text">{result.message}</span>
           <button className="q-next-arrow btn-animated" onClick={handleNext}>
             {result.isCorrect ? (
-              <img src="/assets/icons/right-arrow.png" alt="Next" className="q-arrow-img q-arrow-green" />
+              <img src={`${process.env.PUBLIC_URL}/assets/icons/right-arrow.png`} alt="Next" className="q-arrow-img q-arrow-green" />
             ) : (
-              <img src="/assets/icons/left-arrow.png" alt="Review" className="q-arrow-img q-arrow-red" />
+              <img src={`${process.env.PUBLIC_URL}/assets/icons/left-arrow.png`} alt="Review" className="q-arrow-img q-arrow-red" />
             )}
           </button>
         </div>

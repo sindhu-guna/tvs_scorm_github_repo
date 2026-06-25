@@ -25,7 +25,7 @@ const HomeScreen = ({ onSelectLanguage }) => {
       {/* Bike Image - centered initially */}
       <div className={`bike-container ${bikeLoaded ? 'bike-visible' : ''} ${bikeShifted ? 'bike-shifted' : ''}`}>
         <img
-          src="/assets/bike.jpg"
+          src={`${process.env.PUBLIC_URL}/assets/bike.jpg`}
           alt="TVS Apache RR 310"
           className="bike-image"
           onLoad={() => setBikeLoaded(true)}
@@ -41,7 +41,7 @@ const HomeScreen = ({ onSelectLanguage }) => {
           >
             <span className="select-lang-text">Select Language</span>
             <img
-              src="/assets/icons/translation.png"
+              src={`${process.env.PUBLIC_URL}/assets/icons/translation.png`}
               alt="Language"
               className="lang-icon"
             />

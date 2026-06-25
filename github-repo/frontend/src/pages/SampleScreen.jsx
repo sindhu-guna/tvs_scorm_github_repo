@@ -210,7 +210,7 @@ const SampleScreen = ({ onPreview, onGoToQuestion, topicId }) => {
                     {/* Play overlay on hover */}
                     {isHovered && (
                       <div className="clip-play-overlay">
-                        <img src="/assets/icons/play-circle.png" alt="Play" className="clip-play-icon" />
+                        <img src={`${process.env.PUBLIC_URL}/assets/icons/play-circle.png`} alt="Play" className="clip-play-icon" />
                       </div>
                     )}
                     {/* Question link badge */}
@@ -236,7 +236,7 @@ const SampleScreen = ({ onPreview, onGoToQuestion, topicId }) => {
             onClick={() => onPreview('voiceover')}
           >
             <span className="preview-text">Preview</span>
-            <img src="/assets/icons/play-circle.png" alt="Preview" className="preview-icon" />
+            <img src={`${process.env.PUBLIC_URL}/assets/icons/play-circle.png`} alt="Preview" className="preview-icon" />
           </button>
         </div>
       )}

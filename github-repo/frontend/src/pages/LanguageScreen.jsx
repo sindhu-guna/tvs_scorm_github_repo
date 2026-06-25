@@ -55,7 +55,7 @@ const LanguageScreen = ({ onNext }) => {
 
       {/* Bike - shifted left per design */}
       <div className="bike-shifted-container">
-        <img src="/assets/bike-shifted.jpg" alt="TVS Apache RR 310" className="bike-shifted-img" />
+        <img src={`${process.env.PUBLIC_URL}/assets/bike-shifted.jpg`} alt="TVS Apache RR 310" className="bike-shifted-img" />
       </div>
 
       {/* Language List - right panel */}
@@ -97,7 +97,7 @@ const LanguageScreen = ({ onNext }) => {
             onClick={() => onNext(selected)}
           >
             <span className="next-text">Next</span>
-            <img src="/assets/icons/arrow-right.png" alt="Next" className="next-icon" />
+            <img src={`${process.env.PUBLIC_URL}/assets/icons/arrow-right.png`} alt="Next" className="next-icon" />
           </button>
         </div>
       )}

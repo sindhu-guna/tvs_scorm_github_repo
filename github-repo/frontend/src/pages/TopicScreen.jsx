@@ -64,7 +64,7 @@ const TopicScreen = ({ onStartModule }) => {
 
       {/* Bike - positioned right */}
       <div className="topic-bike-container">
-        <img src="/assets/bike-shifted.jpg" alt="TVS Apache RR 310" className="topic-bike-img" />
+        <img src={`${process.env.PUBLIC_URL}/assets/bike-shifted.jpg`} alt="TVS Apache RR 310" className="topic-bike-img" />
       </div>
 
       {/* Left panel: Select Topic */}
@@ -115,7 +115,7 @@ const TopicScreen = ({ onStartModule }) => {
             onClick={() => onStartModule(selected)}
           >
             <span className="start-module-text">Start Module</span>
-            <img src="/assets/icons/arrow-right.png" alt="Start" className="start-icon" />
+            <img src={`${process.env.PUBLIC_URL}/assets/icons/arrow-right.png`} alt="Start" className="start-icon" />
           </button>
         </div>
       )}

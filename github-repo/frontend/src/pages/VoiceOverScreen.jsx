@@ -3,7 +3,7 @@ import HeaderBar from '../components/HeaderBar';
 import './VoiceOverScreen.css';
 
 const VOICE_SAMPLES = [
-  { id: 'male-1',   label: 'Male Voice over Sample 1',   side: 'left',  audio: '/assets/vo-male-1.mp3' },
+  { id: 'male-1',   label: 'Male Voice over Sample 1',   side: 'left',  audio: `${process.env.PUBLIC_URL}/assets/vo-male-1.mp3` },
   { id: 'female-1', label: 'Female Voice over Sample 1', side: 'right', audio: null },
   { id: 'male-2',   label: 'Male Voice over Sample 2',   side: 'left',  audio: null },
   { id: 'female-2', label: 'Female Voice over Sample 2', side: 'right', audio: null },
@@ -59,7 +59,7 @@ const VoiceOverScreen = ({ onBack }) => {
                       {isPlaying ? (
                         <span className="vo-pause-icon">⏸</span>
                       ) : (
-                        <img src="/assets/icons/play-circle.png" alt="Play" className="vo-play-icon" />
+                        <img src={`${process.env.PUBLIC_URL}/assets/icons/play-circle.png`} alt="Play" className="vo-play-icon" />
                       )}
                     </button>
                     <span className={`vo-label ${isPlaying ? 'vo-label-active' : ''}`}>
@@ -79,7 +79,7 @@ const VoiceOverScreen = ({ onBack }) => {
                       {isPlaying ? (
                         <span className="vo-pause-icon">⏸</span>
                       ) : (
-                        <img src="/assets/icons/play-circle.png" alt="Play" className="vo-play-icon" />
+                        <img src={`${process.env.PUBLIC_URL}/assets/icons/play-circle.png`} alt="Play" className="vo-play-icon" />
                       )}
                     </button>
                   </>
