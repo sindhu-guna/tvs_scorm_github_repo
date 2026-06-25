@@ -1,50 +1,9 @@
 /* =========================================
    TVS SCORM - Global Styles
-   Font: Poppins | Design: Dark Navy Blue
+   Font: Poppins via Google Fonts
    ========================================= */
 
-@font-face {
-  font-family: 'Poppins';
-  src: url('%PUBLIC_URL%/fonts/Poppins-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('%PUBLIC_URL%/fonts/Poppins-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('%PUBLIC_URL%/fonts/Poppins-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('%PUBLIC_URL%/fonts/Poppins-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('%PUBLIC_URL%/fonts/Poppins-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('%PUBLIC_URL%/fonts/Poppins-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('%PUBLIC_URL%/fonts/Poppins-ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&display=swap');
 
 /* CSS Variables */
 :root {
@@ -110,7 +69,7 @@ body {
 .screen-bg {
   position: absolute;
   inset: 0;
-  background-image: url('%PUBLIC_URL%/assets/background.jpg');
+  background-image: url('/assets/background.jpg');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -148,12 +107,6 @@ body {
   font-weight: 800;
   color: var(--tvs-blue);
   letter-spacing: 2px;
-}
-
-.tvs-logo-horse {
-  width: 48px;
-  height: 36px;
-  object-fit: contain;
 }
 
 /* ========== ANIMATED BUTTON STYLE ========== */
@@ -198,11 +151,6 @@ body {
 @keyframes slideInLeft {
   from { opacity: 0; transform: translateX(-40px); }
   to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes bikeSlide {
-  from { transform: translateX(0) scale(1); }
-  to { transform: translateX(-8%) scale(1.05); }
 }
 
 .anim-pop { animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards; }

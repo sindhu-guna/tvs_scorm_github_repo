@@ -56,7 +56,7 @@ const QuestionScreen = ({ topicId, onFinish }) => {
     setLoading(true);
     getQuestions(topicId)
       .then(res => {
-        setQuestions(res.data && res.data.length > 0 ? res.data : FALLBACK_QUESTIONS);
+        setQuestions(res && res.data && res.data.length > 0 ? res.data : FALLBACK_QUESTIONS);
       })
       .catch(() => setQuestions(FALLBACK_QUESTIONS))
       .finally(() => setLoading(false));
@@ -89,9 +89,13 @@ const QuestionScreen = ({ topicId, onFinish }) => {
         selectedAnswer,
         topicId
       });
-      const data = res.data;
-      setResult(data);
-      if (data.isCorrect) setScore(s => s + 1);
+      if (res && res.data) {
+        const data = res.data;
+        setResult(data);
+        if (data.isCorrect) setScore(s => s + 1);
+      } else {
+        throw new Error('No response from API');
+      }
     } catch {
       // Offline fallback
       const isCorrect = selectedAnswer === q.correct;
