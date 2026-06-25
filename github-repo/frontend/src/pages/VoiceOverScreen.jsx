@@ -35,7 +35,7 @@ const VoiceOverScreen = ({ onBack }) => {
 
   return (
     <div className="screen vo-screen">
-      <div className="screen-bg" />
+      <div className="screen-bg" style={{backgroundImage: `url(${process.env.PUBLIC_URL}/assets/background.jpg)`}} />
       <HeaderBar />
 
       <div className="vo-content">

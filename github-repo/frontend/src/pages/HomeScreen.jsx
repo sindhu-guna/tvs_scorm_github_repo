@@ -17,7 +17,7 @@ const HomeScreen = ({ onSelectLanguage }) => {
   return (
     <div className="screen home-screen">
       {/* Background */}
-      <div className="screen-bg" />
+      <div className="screen-bg" style={{backgroundImage: `url(${process.env.PUBLIC_URL}/assets/background.jpg)`}} />
 
       {/* Header */}
       <HeaderBar />

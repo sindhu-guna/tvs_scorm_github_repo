@@ -69,7 +69,6 @@ body {
 .screen-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/assets/background.jpg');
   background-size: cover;
   background-position: center;
   z-index: 0;

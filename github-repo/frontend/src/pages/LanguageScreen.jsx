@@ -24,7 +24,7 @@ const LanguageScreen = ({ onNext }) => {
 
   useEffect(() => {
     getLanguages()
-      .then(res => { if (res.data) setLanguages(res.data); })
+      .then(res => { if (res && res.data) setLanguages(res.data); })
       .catch(() => {}); // use fallback
   }, []);
 
@@ -50,7 +50,7 @@ const LanguageScreen = ({ onNext }) => {
 
   return (
     <div className="screen lang-screen">
-      <div className="screen-bg" />
+      <div className="screen-bg" style={{backgroundImage: `url(${process.env.PUBLIC_URL}/assets/background.jpg)`}} />
       <HeaderBar />
 
       {/* Bike - shifted left per design */}

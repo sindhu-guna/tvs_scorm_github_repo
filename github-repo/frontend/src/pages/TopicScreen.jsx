@@ -36,7 +36,7 @@ const TopicScreen = ({ onStartModule }) => {
 
   useEffect(() => {
     getTopics()
-      .then(res => { if (res.data) setTopics(res.data); })
+      .then(res => { if (res && res.data) setTopics(res.data); })
       .catch(() => {});
   }, []);
 
@@ -59,7 +59,7 @@ const TopicScreen = ({ onStartModule }) => {
 
   return (
     <div className="screen topic-screen">
-      <div className="screen-bg" />
+      <div className="screen-bg" style={{backgroundImage: `url(${process.env.PUBLIC_URL}/assets/background.jpg)`}} />
       <HeaderBar />
 
       {/* Bike - positioned right */}
