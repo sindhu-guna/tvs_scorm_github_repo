@@ -1,0 +1,257 @@
+/* =========================================
+   TVS SCORM - Global Styles
+   Font: Poppins | Design: Dark Navy Blue
+   ========================================= */
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* CSS Variables */
+:root {
+  --bg-primary: #0a1628;
+  --bg-center: #0d2044;
+  --tvs-blue: #1a3ccc;
+  --tvs-red: #e8192c;
+  --text-white: #ffffff;
+  --text-light: rgba(255,255,255,0.85);
+  --text-dim: rgba(255,255,255,0.6);
+  --accent-green: #22c55e;
+  --border-white: rgba(255,255,255,0.25);
+  --shadow-blue: 0 0 40px rgba(26,60,204,0.3);
+
+  /* Font sizes matching design spec */
+  --fs-header: 35px;
+  --fs-select-btn: 30px;
+  --fs-topic-title: 40px;
+  --fs-topic-item: 30px;
+  --fs-sample-title: 40px;
+  --fs-sample-item: 30px;
+  --fs-question: 35px;
+  --fs-option: 35px;
+  --fs-abcd: 50px;
+  --fs-nav: 30px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ========== SCREEN WRAPPER ========== */
+.screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, var(--bg-center) 0%, var(--bg-primary) 70%);
+}
+
+.screen-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* ========== HEADER BAR ========== */
+.header-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  z-index: 10;
+}
+
+.header-title {
+  font-size: var(--fs-header);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--text-white);
+  letter-spacing: 0.3px;
+}
+
+.tvs-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tvs-logo-text {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--tvs-blue);
+  letter-spacing: 2px;
+}
+
+.tvs-logo-horse {
+  width: 48px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* ========== ANIMATED BUTTON STYLE ========== */
+.btn-animated {
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.18s ease,
+              background-color 0.15s ease;
+  user-select: none;
+}
+
+.btn-animated:hover {
+  transform: scale(1.08);
+}
+
+.btn-animated:active {
+  transform: scale(0.97);
+}
+
+/* Pop-in animation for buttons appearing */
+@keyframes popIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  70% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bikeSlide {
+  from { transform: translateX(0) scale(1); }
+  to { transform: translateX(-8%) scale(1.05); }
+}
+
+.anim-pop { animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+.anim-fade { animation: fadeIn 0.5s ease forwards; }
+.anim-slide-right { animation: slideInRight 0.45s ease forwards; }
+.anim-slide-left { animation: slideInLeft 0.45s ease forwards; }
+.anim-fade-slide { animation: fadeSlideIn 0.4s ease forwards; }
+
+/* Stagger delays for list items */
+.anim-delay-1 { animation-delay: 0.05s; opacity: 0; }
+.anim-delay-2 { animation-delay: 0.10s; opacity: 0; }
+.anim-delay-3 { animation-delay: 0.15s; opacity: 0; }
+.anim-delay-4 { animation-delay: 0.20s; opacity: 0; }
+.anim-delay-5 { animation-delay: 0.25s; opacity: 0; }
+.anim-delay-6 { animation-delay: 0.30s; opacity: 0; }
+.anim-delay-7 { animation-delay: 0.35s; opacity: 0; }
+
+/* ========== SCROLL ARROWS ========== */
+.scroll-arrows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scroll-arrow {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.2s;
+  font-size: 22px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-arrow:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* ========== TRANSITIONS ========== */
+.page-enter {
+  animation: fadeIn 0.35s ease forwards;
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }

@@ -1,0 +1,140 @@
+/* Language Selection Screen */
+.lang-screen { position: relative; }
+
+/* Bike shifted left */
+.bike-shifted-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.bike-shifted-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Language Panel - right side */
+.lang-panel {
+  position: absolute;
+  top: 50%;
+  right: 28px;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.lang-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.lang-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 6px 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.lang-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 35px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.3px;
+  transition: font-weight 0.15s, color 0.15s;
+  text-align: right;
+}
+
+.lang-item:hover .lang-name,
+.lang-item-selected .lang-name {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.lang-active-line {
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+.lang-dash {
+  font-size: 28px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+}
+
+/* Scroll Controls */
+.scroll-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.scroll-arrow {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  opacity: 0.8;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.scroll-arrow:hover:not(:disabled) {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.scroll-arrow:disabled { opacity: 0.2; cursor: default; }
+
+/* Next Button */
+.next-btn-wrapper {
+  position: absolute;
+  bottom: 36px;
+  right: 36px;
+  z-index: 20;
+}
+
+.next-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 4px;
+}
+
+.next-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.next-icon {
+  width: 38px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.next-btn:hover .next-text { font-weight: 600; }

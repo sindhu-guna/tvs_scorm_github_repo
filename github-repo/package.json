@@ -1,0 +1,10 @@
+{
+  "name": "tvs-scorm",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "start": "node backend/src/server.js"
+  }
+}
