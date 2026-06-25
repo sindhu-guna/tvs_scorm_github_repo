@@ -44,13 +44,10 @@ const SCREENS = {
 
 function App() {
   const [screen, setScreen]         = useState(SCREENS.HOME);
-  const [language, setLanguage]     = useState(null);
   const [topicId, setTopicId]       = useState(null);
-  const [prevScreen, setPrevScreen] = useState(null);
   const [quizResult, setQuizResult] = useState(null);
 
   const goTo = useCallback((s) => {
-    setPrevScreen(screen);
     setScreen(s);
   }, [screen]);
 
@@ -59,7 +56,6 @@ function App() {
 
   // LANGUAGE → select language then "Next"
   const handleLanguageNext = (lang) => {
-    setLanguage(lang);
     goTo(SCREENS.TOPIC);
   };
 

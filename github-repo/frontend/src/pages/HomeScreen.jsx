@@ -5,7 +5,7 @@ import './HomeScreen.css';
 const HomeScreen = ({ onSelectLanguage }) => {
   const [showBtn, setShowBtn] = useState(false);
   const [bikeLoaded, setBikeLoaded] = useState(false);
-  const [bikeShifted, setBikeShifted] = useState(false);
+  const [bikeShifted] = useState(false);
 
   useEffect(() => {
     // Sequence: bike appears → heading appears → Select Language button appears
