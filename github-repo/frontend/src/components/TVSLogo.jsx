@@ -1,19 +1,41 @@
 /* eslint-disable */
 import React from 'react';
 
-// TVS Logo exactly matching the reference image - Blue TVS text + Red horse
+// TVS Logo exactly as reference image - Large blue bold TVS + bigger red horse
 const TVSLogo = () => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
-    <svg width="60" height="28" viewBox="0 0 60 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <text x="0" y="24" fontFamily="Poppins, Arial, sans-serif" fontSize="26" fontWeight="900" fill="#1565C0" letterSpacing="1">TVS</text>
-    </svg>
-    <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 24 C2 20 2 16 4 13 C6 10 9 8 12 7 C14 6 15 5 16 3 C17 2 18 1 20 1 C22 1 23 2 23 4 C23 5 24 6 26 6 C29 6 32 7 34 9 C36 11 36 14 35 16 C34 17 32 18 30 18 C28 18 26 17 24 16 C22 15 20 15 18 16 C16 17 15 19 15 22 C15 24 16 27 17 28 L14 28 C10 28 5 27 3 24Z" fill="#E53935"/>
-      <line x1="10" y1="25" x2="8" y2="30" stroke="#E53935" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="14" y1="26" x2="13" y2="30" stroke="#E53935" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="17" y1="27" x2="18" y2="30" stroke="#E53935" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="21" y1="26" x2="22" y2="30" stroke="#E53935" strokeWidth="2" strokeLinecap="round"/>
-      <path d="M3 22 C1 20 0 17 1 14" stroke="#E53935" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0px', flexShrink: 0 }}>
+    {/* Blue TVS text - bold large */}
+    <span style={{
+      fontFamily: 'Poppins, Arial Black, sans-serif',
+      fontSize: 'clamp(22px, 2.4vw, 34px)',
+      fontWeight: 900,
+      color: '#1565C0',
+      letterSpacing: '2px',
+      lineHeight: 1,
+    }}>TVS</span>
+    {/* Red horse SVG - bigger */}
+    <svg
+      width="clamp(36px, 3.5vw, 52px)"
+      height="clamp(30px, 3vw, 44px)"
+      viewBox="0 0 52 44"
+      style={{ width: 'clamp(36px, 3.5vw, 52px)', height: 'clamp(30px, 3vw, 44px)' }}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Horse body */}
+      <path
+        d="M4 36 C3 30 3 24 5 19 C8 14 12 11 16 10 C19 9 20 7 22 4 C23 2 25 1 27 1 C30 1 31 3 31 6 C31 8 33 9 36 9 C40 9 44 11 46 14 C48 17 48 21 47 24 C46 26 43 28 40 28 C37 28 34 26 32 24 C29 22 27 22 24 24 C21 25 19 28 19 32 C19 36 20 40 22 42 L18 42 C13 42 6 40 4 36Z"
+        fill="#E53935"
+      />
+      {/* 4 legs */}
+      <line x1="13" y1="38" x2="10" y2="44" stroke="#E53935" strokeWidth="3" strokeLinecap="round"/>
+      <line x1="18" y1="40" x2="17" y2="44" stroke="#E53935" strokeWidth="3" strokeLinecap="round"/>
+      <line x1="23" y1="41" x2="24" y2="44" stroke="#E53935" strokeWidth="3" strokeLinecap="round"/>
+      <line x1="28" y1="40" x2="30" y2="44" stroke="#E53935" strokeWidth="3" strokeLinecap="round"/>
+      {/* Tail */}
+      <path d="M4 33 C1 30 0 26 2 21" stroke="#E53935" strokeWidth="2" strokeLinecap="round" fill="none"/>
+      {/* Mane */}
+      <path d="M22 4 C21 2 23 0 25 1" stroke="#E53935" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+      <path d="M25 3 C24 1 26 0 28 1" stroke="#E53935" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
     </svg>
   </div>
 );

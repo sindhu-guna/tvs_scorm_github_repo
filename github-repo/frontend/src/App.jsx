@@ -25,25 +25,20 @@ const TOPICS = [
 
 const S = { HOME:'home', LANGUAGE:'language', TOPIC:'topic', SAMPLE:'sample', VOICEOVER:'voiceover', QUESTION:'question', RESULT:'result' };
 
-// Screen history for back navigation
 function App() {
-  const [screen, setScreen]       = useState(S.HOME);
-  const [history, setHistory]     = useState([]);
-  const [topicId, setTopicId]     = useState(null);
+  const [screen, setScreen]         = useState(S.HOME);
+  const [history, setHistory]       = useState([]);
+  const [topicId, setTopicId]       = useState(null);
+  const [language, setLanguage]     = useState('en');
   const [quizResult, setQuizResult] = useState(null);
 
-  const goTo = (s) => {
-    setHistory(h => [...h, screen]);
-    setScreen(s);
-  };
-
+  const goTo = (s) => { setHistory(h => [...h, screen]); setScreen(s); };
   const goBack = () => {
     if (history.length === 0) return;
     const prev = history[history.length - 1];
     setHistory(h => h.slice(0, -1));
     setScreen(prev);
   };
-
   const goHome = () => { setHistory([]); setScreen(S.HOME); setTopicId(null); setQuizResult(null); };
 
   const topicObj = TOPICS.find(t => t.id === topicId);
@@ -51,11 +46,11 @@ function App() {
   return (
     <div className="page-enter">
       {screen === S.HOME      && <HomeScreen onSelectLanguage={() => goTo(S.LANGUAGE)} />}
-      {screen === S.LANGUAGE  && <LanguageScreen onNext={() => goTo(S.TOPIC)} onBack={goBack} />}
+      {screen === S.LANGUAGE  && <LanguageScreen onNext={(lang) => { setLanguage(lang || 'en'); goTo(S.TOPIC); }} onBack={goBack} />}
       {screen === S.TOPIC     && <TopicScreen onStartModule={(tid) => { setTopicId(tid); goTo(S.SAMPLE); }} onBack={goBack} />}
       {screen === S.SAMPLE    && <SampleScreen topicId={topicId} onPreview={(t) => { if(t==='voiceover') goTo(S.VOICEOVER); }} onGoToQuestion={(tid) => { setTopicId(tid); goTo(S.QUESTION); }} onBack={goBack} />}
-      {screen === S.VOICEOVER && <VoiceOverScreen onBack={goBack} />}
-      {screen === S.QUESTION  && <QuestionScreen topicId={topicId} onFinish={(r) => { setQuizResult(r); goTo(S.RESULT); }} onBack={goBack} />}
+      {screen === S.VOICEOVER && <VoiceOverScreen onBack={goBack} language={language} />}
+      {screen === S.QUESTION  && <QuestionScreen topicId={topicId} language={language} onFinish={(r) => { setQuizResult(r); goTo(S.RESULT); }} onBack={goBack} />}
       {screen === S.RESULT && quizResult && (
         <ResultScreen
           score={quizResult.score} total={quizResult.total}
