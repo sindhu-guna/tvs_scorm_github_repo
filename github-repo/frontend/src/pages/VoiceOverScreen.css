@@ -1,110 +1,14 @@
-/* Voice Over Screen */
 .vo-screen { position: relative; }
-
-.vo-content {
-  position: absolute;
-  top: 72px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 60px 60px;
-  z-index: 5;
-}
-
-.vo-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 40px;
-  font-weight: 700;
-  color: #ffffff;
-  text-align: center;
-  letter-spacing: 3px;
-  margin-bottom: 32px;
-}
-
-.vo-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  width: 100%;
-  max-width: 800px;
-}
-
-/* Each row */
-.vo-row {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
+.vo-content { position: absolute; top: 55px; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; padding: 16px 50px; z-index: 5; }
+.vo-title { font-family: 'Poppins', sans-serif; font-size: clamp(16px,2vw,26px); font-weight: 700; letter-spacing: 3px; margin-bottom: 24px; }
+.vo-list { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 700px; }
+.vo-row { display: flex; align-items: center; gap: 18px; }
 .vo-row-left  { justify-content: flex-start; }
 .vo-row-right { justify-content: flex-end; }
-
-/* Play button */
-.vo-play-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform 0.2s;
-}
+.vo-play-btn { background: transparent; border: none; cursor: pointer; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.2s; }
 .vo-play-btn:hover { transform: scale(1.15); }
-.vo-play-active img, .vo-play-active .vo-pause-icon {
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8)) brightness(0) invert(1) !important;
-}
-
-.vo-play-icon {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.85;
-}
-
-.vo-pause-icon {
-  font-size: 32px;
-  color: white;
-  line-height: 1;
-}
-
-/* Label */
-.vo-label {
-  font-family: 'Poppins', sans-serif;
-  font-size: 30px;
-  font-weight: 300;
-  font-style: italic;
-  color: rgba(255,255,255,0.9);
-  transition: font-weight 0.15s, color 0.15s;
-}
-
-.vo-label-right { text-align: right; }
-
-.vo-label-active {
-  font-weight: 600;
-  color: #ffffff;
-  font-style: italic;
-}
-
-/* Back button */
-.vo-back-btn {
-  position: absolute;
-  bottom: 32px;
-  left: 40px;
-  background: transparent;
-  border: none;
-  color: rgba(255,255,255,0.7);
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 8px 12px;
-  transition: color 0.2s;
-}
-.vo-back-btn:hover { color: white; }
+.vo-play-icon { width: 42px; height: 42px; object-fit: contain; filter: brightness(0) invert(1); opacity: .85; }
+.vo-play-btn.playing .vo-play-icon { opacity: 1; filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,.8)); }
+.vo-pause { font-size: 28px; color: white; }
+.vo-label { font-family: 'Poppins', sans-serif; font-size: clamp(12px,1.4vw,20px); font-weight: 300; font-style: italic; color: rgba(255,255,255,.9); transition: font-weight 0.15s; }
+.vo-label.playing { font-weight: 600; color: #fff; }

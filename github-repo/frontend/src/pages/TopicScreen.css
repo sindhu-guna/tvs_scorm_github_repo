@@ -1,146 +1,16 @@
-/* Topic Screen */
 .topic-screen { position: relative; }
-
-/* Bike further right */
-.topic-bike-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 65%;
-  height: 100%;
-  z-index: 1;
-}
-.topic-bike-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: left center;
-}
-
-/* Left Panel */
-.topic-panel {
-  position: absolute;
-  top: 88px;
-  left: 32px;
-  width: 44%;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* Title Row */
-.topic-title-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.topic-colon {
-  font-size: 32px;
-  font-weight: 900;
-  color: white;
-  line-height: 1;
-  margin-top: -4px;
-}
-
-.topic-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 40px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.2px;
-}
-
-/* Topic List */
-.topic-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.topic-item {
-  padding: 6px 0;
-  cursor: pointer;
-  position: relative;
-}
-
-.topic-name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.3;
-  transition: font-weight 0.15s, color 0.15s;
-  display: block;
-}
-
-.topic-item:hover .topic-name,
-.topic-item-selected .topic-name {
-  font-weight: 800;
-  color: #ffffff;
-}
-
-/* Scroll Controls - bottom left */
-.topic-scroll-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 12px;
-}
-
-.scroll-arrow {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  padding: 4px 0;
-  opacity: 0.8;
-  transition: opacity 0.2s, transform 0.2s;
-  line-height: 1;
-  text-align: left;
-  width: 32px;
-}
-.scroll-arrow:hover:not(:disabled) {
-  opacity: 1;
-  transform: scale(1.2);
-}
-.scroll-arrow:disabled { opacity: 0.2; cursor: default; }
-
-/* Start Module Button */
-.start-module-wrapper {
-  position: absolute;
-  bottom: 36px;
-  right: 36px;
-  z-index: 20;
-}
-
-.start-module-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 6px 4px;
-}
-
-.start-module-text {
-  font-family: 'Poppins', sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}
-
-.start-icon {
-  width: 38px;
-  height: 28px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
-.start-module-btn:hover .start-module-text { font-weight: 600; }
+.topic-bike { position: absolute; top: 0; right: 0; width: 65%; height: 100%; z-index: 1; }
+.topic-panel { position: absolute; top: 60px; left: 28px; width: 44%; z-index: 10; display: flex; flex-direction: column; gap: 2px; }
+.topic-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.topic-colon { font-size: clamp(18px,2vw,26px); font-weight: 900; color: #fff; }
+.topic-title { font-family: 'Poppins', sans-serif; font-size: clamp(18px,2.2vw,28px); font-weight: 700; color: #fff; }
+.topic-list { list-style: none; display: flex; flex-direction: column; }
+.topic-item { padding: 3px 0; cursor: pointer; }
+.topic-name { font-family: 'Poppins', sans-serif; font-size: clamp(11px,1.2vw,16px); font-weight: 400; color: rgba(255,255,255,.9); line-height: 1.4; transition: font-weight 0.15s, color 0.15s; display: block; }
+.topic-item:hover .topic-name, .topic-item-selected .topic-name { font-weight: 800; color: #fff; }
+.topic-scroll { display: flex; flex-direction: column; gap: 2px; margin-top: 8px; }
+.start-wrap { position: absolute; bottom: clamp(20px,3vh,36px); right: clamp(20px,2.5vw,36px); z-index: 20; }
+.start-btn { display: flex; align-items: center; gap: 10px; background: transparent; border: none; cursor: pointer; padding: 6px 4px; }
+.start-text { font-family: 'Poppins', sans-serif; font-size: clamp(13px,1.5vw,20px); font-weight: 400; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
+.start-icon { width: clamp(22px,2vw,30px); height: auto; filter: brightness(0) invert(1); }
+.start-btn:hover .start-text { font-weight: 700; }

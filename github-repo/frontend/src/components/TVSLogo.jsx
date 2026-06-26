@@ -1,23 +1,19 @@
 /* eslint-disable */
 import React from 'react';
 
-// TVS Logo: Blue text + red horse icon (matches design exactly)
-const TVSLogo = ({ style = {} }) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '4px', ...style }}>
-    {/* Blue TVS text */}
-    <svg width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <text x="0" y="26" fontFamily="Poppins, sans-serif" fontSize="28" fontWeight="900" fill="#1a3ccc" letterSpacing="3">TVS</text>
+// TVS Logo exactly matching the reference image - Blue TVS text + Red horse
+const TVSLogo = () => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+    <svg width="60" height="28" viewBox="0 0 60 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="24" fontFamily="Poppins, Arial, sans-serif" fontSize="26" fontWeight="900" fill="#1565C0" letterSpacing="1">TVS</text>
     </svg>
-    {/* Red galloping horse */}
-    <svg width="44" height="36" viewBox="0 0 44 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Simplified horse silhouette matching TVS logo style */}
-      <path d="M8 28 C6 24 5 20 7 16 C9 12 12 10 15 9 C17 8 18 7 19 5 C20 3 21 2 23 2 C25 2 26 3 26 5 C26 6 27 7 29 7 C32 7 36 8 38 10 C40 12 40 15 39 17 C38 19 36 20 34 20 C32 20 30 19 28 18 C26 17 24 17 22 18 C20 19 19 21 19 24 C19 27 20 30 22 32 L18 33 C14 33 10 32 8 28 Z" fill="#e8192c"/>
-      {/* Legs */}
-      <path d="M14 28 L12 34 M18 29 L17 34 M22 30 L22 35 M26 29 L27 34" stroke="#e8192c" strokeWidth="2" strokeLinecap="round"/>
-      {/* Tail */}
-      <path d="M8 28 C4 26 2 22 3 18 C4 15 7 13 9 14" stroke="#e8192c" strokeWidth="2" strokeLinecap="round" fill="none"/>
-      {/* Mane */}
-      <path d="M19 5 C18 4 17 3 18 2 M21 4 C20 3 20 1 22 1 M23 5 C23 3 25 2 26 3" stroke="#e8192c" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+    <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 24 C2 20 2 16 4 13 C6 10 9 8 12 7 C14 6 15 5 16 3 C17 2 18 1 20 1 C22 1 23 2 23 4 C23 5 24 6 26 6 C29 6 32 7 34 9 C36 11 36 14 35 16 C34 17 32 18 30 18 C28 18 26 17 24 16 C22 15 20 15 18 16 C16 17 15 19 15 22 C15 24 16 27 17 28 L14 28 C10 28 5 27 3 24Z" fill="#E53935"/>
+      <line x1="10" y1="25" x2="8" y2="30" stroke="#E53935" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="14" y1="26" x2="13" y2="30" stroke="#E53935" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="17" y1="27" x2="18" y2="30" stroke="#E53935" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="21" y1="26" x2="22" y2="30" stroke="#E53935" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M3 22 C1 20 0 17 1 14" stroke="#E53935" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
     </svg>
   </div>
 );

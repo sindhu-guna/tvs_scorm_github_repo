@@ -10,72 +10,58 @@ import QuestionScreen  from './pages/QuestionScreen';
 import ResultScreen    from './pages/ResultScreen';
 
 const TOPICS = [
-  { id: 1,  name: 'Battery voltage' },
-  { id: 2,  name: 'Engine oil filter' },
-  { id: 3,  name: 'Air cleaner element' },
-  { id: 4,  name: 'Spark plug' },
-  { id: 5,  name: 'Tappet clearance' },
-  { id: 6,  name: 'Clutch operations' },
-  { id: 7,  name: 'Front and rear suspension' },
-  { id: 8,  name: 'Headlamp beam' },
-  { id: 9,  name: 'Front and rear brake fluid level' },
-  { id: 10, name: 'Front and rear brake pad wear' },
-  { id: 11, name: 'Brake hose / rubber parts' },
-  { id: 12, name: 'Tyre air pressure' },
-  { id: 13, name: 'Coolant level, water hoses' },
-  { id: 14, name: 'Drive chain slackness / lubrication Inspect' },
-  { id: 15, name: 'Steering play' },
-  { id: 16, name: 'Lubrication points' },
-  { id: 17, name: 'Brake pedal / gear shift lever mounting pin' },
-  { id: 18, name: 'All fastner checking and tightening' },
-  { id: 19, name: 'All light & horn inspection' },
-  { id: 20, name: 'Brake fluid Replacement' }
+  { id:1,name:'Battery voltage' }, { id:2,name:'Engine oil filter' },
+  { id:3,name:'Air cleaner element' }, { id:4,name:'Spark plug' },
+  { id:5,name:'Tappet clearance' }, { id:6,name:'Clutch operations' },
+  { id:7,name:'Front and rear suspension' }, { id:8,name:'Headlamp beam' },
+  { id:9,name:'Front and rear brake fluid level' }, { id:10,name:'Front and rear brake pad wear' },
+  { id:11,name:'Brake hose / rubber parts' }, { id:12,name:'Tyre air pressure' },
+  { id:13,name:'Coolant level, water hoses' }, { id:14,name:'Drive chain slackness / lubrication Inspect' },
+  { id:15,name:'Steering play' }, { id:16,name:'Lubrication points' },
+  { id:17,name:'Brake pedal / gear shift lever mounting pin' },
+  { id:18,name:'All fastner checking and tightening' },
+  { id:19,name:'All light & horn inspection' }, { id:20,name:'Brake fluid Replacement' }
 ];
 
-const SCREENS = {
-  HOME:      'home',
-  LANGUAGE:  'language',
-  TOPIC:     'topic',
-  SAMPLE:    'sample',
-  VOICEOVER: 'voiceover',
-  QUESTION:  'question',
-  RESULT:    'result',
-};
+const S = { HOME:'home', LANGUAGE:'language', TOPIC:'topic', SAMPLE:'sample', VOICEOVER:'voiceover', QUESTION:'question', RESULT:'result' };
 
+// Screen history for back navigation
 function App() {
-  const [screen, setScreen]         = useState(SCREENS.HOME);
-  const [topicId, setTopicId]       = useState(null);
+  const [screen, setScreen]       = useState(S.HOME);
+  const [history, setHistory]     = useState([]);
+  const [topicId, setTopicId]     = useState(null);
   const [quizResult, setQuizResult] = useState(null);
 
-  const goTo = (s) => setScreen(s);
+  const goTo = (s) => {
+    setHistory(h => [...h, screen]);
+    setScreen(s);
+  };
 
-  const handleSelectLanguage = () => goTo(SCREENS.LANGUAGE);
-  const handleLanguageNext   = () => goTo(SCREENS.TOPIC);
-  const handleStartModule    = (tid) => { setTopicId(tid); goTo(SCREENS.SAMPLE); };
-  const handlePreview        = (type) => { if (type === 'voiceover') goTo(SCREENS.VOICEOVER); };
-  const handleGoToQuestion   = (tid) => { setTopicId(tid); goTo(SCREENS.QUESTION); };
-  const handleVOBack         = () => goTo(SCREENS.SAMPLE);
-  const handleQuizFinish     = ({ score, total }) => { setQuizResult({ score, total }); goTo(SCREENS.RESULT); };
-  const handleResultRestart  = () => { setQuizResult(null); goTo(SCREENS.QUESTION); };
-  const handleResultHome     = () => { setTopicId(null); setQuizResult(null); goTo(SCREENS.HOME); };
+  const goBack = () => {
+    if (history.length === 0) return;
+    const prev = history[history.length - 1];
+    setHistory(h => h.slice(0, -1));
+    setScreen(prev);
+  };
+
+  const goHome = () => { setHistory([]); setScreen(S.HOME); setTopicId(null); setQuizResult(null); };
 
   const topicObj = TOPICS.find(t => t.id === topicId);
 
   return (
     <div className="page-enter">
-      {screen === SCREENS.HOME      && <HomeScreen onSelectLanguage={handleSelectLanguage} />}
-      {screen === SCREENS.LANGUAGE  && <LanguageScreen onNext={handleLanguageNext} />}
-      {screen === SCREENS.TOPIC     && <TopicScreen onStartModule={handleStartModule} />}
-      {screen === SCREENS.SAMPLE    && <SampleScreen topicId={topicId} onPreview={handlePreview} onGoToQuestion={handleGoToQuestion} />}
-      {screen === SCREENS.VOICEOVER && <VoiceOverScreen onBack={handleVOBack} />}
-      {screen === SCREENS.QUESTION  && <QuestionScreen topicId={topicId} onFinish={handleQuizFinish} />}
-      {screen === SCREENS.RESULT && quizResult && (
+      {screen === S.HOME      && <HomeScreen onSelectLanguage={() => goTo(S.LANGUAGE)} />}
+      {screen === S.LANGUAGE  && <LanguageScreen onNext={() => goTo(S.TOPIC)} onBack={goBack} />}
+      {screen === S.TOPIC     && <TopicScreen onStartModule={(tid) => { setTopicId(tid); goTo(S.SAMPLE); }} onBack={goBack} />}
+      {screen === S.SAMPLE    && <SampleScreen topicId={topicId} onPreview={(t) => { if(t==='voiceover') goTo(S.VOICEOVER); }} onGoToQuestion={(tid) => { setTopicId(tid); goTo(S.QUESTION); }} onBack={goBack} />}
+      {screen === S.VOICEOVER && <VoiceOverScreen onBack={goBack} />}
+      {screen === S.QUESTION  && <QuestionScreen topicId={topicId} onFinish={(r) => { setQuizResult(r); goTo(S.RESULT); }} onBack={goBack} />}
+      {screen === S.RESULT && quizResult && (
         <ResultScreen
-          score={quizResult.score}
-          total={quizResult.total}
+          score={quizResult.score} total={quizResult.total}
           topicName={topicObj ? topicObj.name : 'Service Training'}
-          onRestart={handleResultRestart}
-          onHome={handleResultHome}
+          onRestart={() => { setQuizResult(null); goTo(S.QUESTION); }}
+          onHome={goHome}
         />
       )}
     </div>
