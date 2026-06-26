@@ -53,7 +53,7 @@ const VoiceOverScreen = ({ onBack }) => {
   return (
     <div className="screen vo-screen">
       <div className="screen-bg" style={{backgroundImage:`url(${process.env.PUBLIC_URL}/assets/background.jpg)`}} />
-      <HeaderBar showBack={true} onBack={() => { window.speechSynthesis.cancel(); onBack(); }} />
+      <HeaderBar />
 
       <div className="vo-content">
         <h2 className="vo-title anim-fade-slide">VOICE OVERS</h2>
@@ -78,6 +78,7 @@ const VoiceOverScreen = ({ onBack }) => {
           })}
         </div>
       </div>
+      <button className="bottom-back-btn btn-animated" onClick={() => { window.speechSynthesis.cancel(); onBack(); }}>← Back</button>
     </div>
   );
 };

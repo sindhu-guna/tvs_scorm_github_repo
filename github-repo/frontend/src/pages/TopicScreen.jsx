@@ -43,7 +43,7 @@ const TopicScreen = ({ onStartModule, onBack }) => {
   return (
     <div className="screen topic-screen" onWheel={(e) => { e.preventDefault(); handleScroll(e.deltaY > 0 ? 'down' : 'up'); }}>
       <div className="screen-bg" style={{backgroundImage:`url(${process.env.PUBLIC_URL}/assets/background.jpg)`}} />
-      <HeaderBar showBack={true} onBack={onBack} />
+      <HeaderBar />
 
       <div className="topic-bike">
         <img src={`${process.env.PUBLIC_URL}/assets/bike-shifted.jpg`} alt="bike" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'left center'}} />
@@ -83,6 +83,7 @@ const TopicScreen = ({ onStartModule, onBack }) => {
           </button>
         </div>
       )}
+      <button className="bottom-back-btn btn-animated" onClick={onBack}>← Back</button>
     </div>
   );
 };

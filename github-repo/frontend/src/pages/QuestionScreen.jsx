@@ -148,7 +148,7 @@ const QuestionScreen = ({ topicId, onFinish, onBack }) => {
   if (loading) return (
     <div className="screen question-screen">
       <div className="screen-bg" style={{backgroundImage:`url(${process.env.PUBLIC_URL}/assets/background.jpg)`}} />
-      <HeaderBar showBack={true} onBack={() => { stopVoice(); stopMP3(); onBack(); }} />
+      <HeaderBar />
       <div className="kc-bottom"><KCToolsIcon /><span className="kc-label">KNOWLEDGE CHECK</span></div>
       <div className="q-loading">Loading questions…</div>
     </div>
@@ -171,7 +171,7 @@ const QuestionScreen = ({ topicId, onFinish, onBack }) => {
   return (
     <div className="screen question-screen">
       <div className="screen-bg" style={{backgroundImage:`url(${process.env.PUBLIC_URL}/assets/background.jpg)`}} />
-      <HeaderBar showBack={true} onBack={() => { stopVoice(); stopMP3(); onBack(); }} />
+      <HeaderBar />
 
       {/* Voice indicator */}
       {voicePlaying && (
@@ -236,6 +236,7 @@ const QuestionScreen = ({ topicId, onFinish, onBack }) => {
       )}
 
       <div className="kc-bottom"><KCToolsIcon /><span className="kc-label">KNOWLEDGE CHECK</span></div>
+      <button className="bottom-back-btn btn-animated" onClick={() => { stopVoice(); stopMP3(); onBack(); }}>← Back</button>
     </div>
   );
 };
